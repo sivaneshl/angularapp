@@ -23,6 +23,7 @@
       <md-card-actions>
         <button md-button>LIKE</button>
         <button md-button>SHARE</button>
+        <button md-button (click)="goBack()">BACK</button>
       </md-card-actions>
     </md-card>
   </div>
@@ -41,8 +42,6 @@
                 <span>{{comment.comment}}</span><br />
                 <span>{{comment.rating}} stars</span><br />
                 <span>-- {{comment.author}} {{comment.date | date}}</span><br />
-
-                <!-- <md-divider></md-divider> -->
             </div>
 
           </md-list-item>
