@@ -20,7 +20,7 @@
     </md-list> -->
 
     <!-- grid layout -->
-  <div fxFlex>
+  <div fxFlex *ngIf="dishes"> <!-- this div will be shown only if dishes is not null -->
     <md-grid-list cols="2" rowHeight="200px">
       <md-grid-tile *ngFor="let dish of dishes" [routerLink]="['/dishdetail',dish.id]">
         <img height="200px" src={{dish.image}} alt={{dish.name}} />
@@ -29,8 +29,13 @@
         </md-grid-tile-footer>
       </md-grid-tile>
     </md-grid-list>
-
   </div>
+  <!-- this div will be shown only if the dishes is null -->
+  <div [hidden]="dishes">
+    <md-spinner></md-spinner>
+    <h4>Loading... Please wait</h4>
+  </div>
+
 
   <!-- display selected item in a card
   <div fxFlex *ngIf="selectedDish">
